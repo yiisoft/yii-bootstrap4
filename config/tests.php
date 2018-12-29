@@ -17,8 +17,11 @@ return [
         'scriptUrl' => '/index.php',
     ],
     'assetManager' => [
-        '__class'   => yii\web\AssetManager::class,
+        '__class'   => \yii\web\AssetManager::class,
         'basePath'  => '@webroot/assets',
         'baseUrl'   => '@web/assets',
+    ],
+    'session' => [
+        '__class' => \yii\captcha\tests\data\Session::class,
     ],
 ];
