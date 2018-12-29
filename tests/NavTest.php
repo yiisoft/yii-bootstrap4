@@ -1,5 +1,6 @@
 <?php
-namespace yiiunit\extensions\bootstrap4;
+
+namespace yii\bootstrap4\tests;
 
 use yii\base\Action;
 use yii\base\Module;
@@ -15,7 +16,7 @@ class NavTest extends TestCase
 {
     protected function setUp()
     {
-        $this->mockWebApplication([
+        $this->mockWebApplication(); /*[
             'components' => [
                 'request' => [
                     'class' => 'yii\web\Request',
@@ -30,7 +31,7 @@ class NavTest extends TestCase
                     'hostInfo' => 'http://example.com/',
                 ]
             ],
-        ]);
+        ]);*/
     }
 
     public function testIds()
@@ -315,7 +316,7 @@ EXPECTED;
     */
    protected function mockAction($controllerId, $actionID, $moduleID = null, $params = [])
    {
-       \Yii::$app->controller = $controller = new Controller($controllerId, \Yii::$app);
+       $this->app->controller = $controller = new Controller($controllerId, $this->app);
        $controller->actionParams = $params;
        $controller->action = new Action($actionID, $controller);
 
@@ -326,6 +327,6 @@ EXPECTED;
 
    protected function removeMockedAction()
    {
-       \Yii::$app->controller = null;
+       $this->app->controller = null;
    }
 }
