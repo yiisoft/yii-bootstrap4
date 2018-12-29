@@ -39,7 +39,8 @@ class ActiveFieldTest extends TestCase
         ActiveForm::end();
         ob_end_clean();
 
-        $this->activeField = new ActiveField(['form' => $this->helperForm]);
+        $this->activeField = new ActiveField();
+        $this->activeField->form = $this->helperForm;
         $this->activeField->model = $this->helperModel;
         $this->activeField->attribute = $this->attributeName;
     }

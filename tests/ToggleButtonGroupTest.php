@@ -35,9 +35,12 @@ HTML;
      */
     public function testCheckboxChecked() {
         \yii\bootstrap4\Html::$counter = 0;
+        $model = new ToggleButtonGroupTestModel();
+        $model->value = '2';
+
         $html = ToggleButtonGroup::widget([
             'type' => ToggleButtonGroup::TYPE_CHECKBOX,
-            'model' => new ToggleButtonGroupTestModel(['value' => '2']),
+            'model' => $model,
             'attribute' => 'value',
             'items' => [
                 '1' => 'item 1',
@@ -73,9 +76,12 @@ HTML;
      */
     public function testRadioChecked() {
         \yii\bootstrap4\Html::$counter = 0;
+        $model = new ToggleButtonGroupTestModel();
+        $model->value = '2';
+
         $html = ToggleButtonGroup::widget([
             'type' => ToggleButtonGroup::TYPE_RADIO,
-            'model' => new ToggleButtonGroupTestModel(['value' => '2']),
+            'model' => $model,
             'attribute' => 'value',
             'items' => [
                 '1' => 'item 1',
