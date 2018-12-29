@@ -68,7 +68,8 @@
     "autoload-dev": {
         "psr-4": {
             "yii\\bootstrap4\\tests\\": "tests",
-            "yii\\captcha\\tests\\": "vendor/yiisoft/yii-captcha/tests"
+            "yii\\captcha\\tests\\": "vendor/yiisoft/yii-captcha/tests",
+            "yii\\captcha\\tests\\data\\": "vendor/yiisoft/yii-captcha/tests/data"
         }
     },
     "extra": {
