@@ -154,9 +154,7 @@ class ActiveField extends \yii\widgets\ActiveField implements Initiable
      */
     public function init(): void
     {
-        $layoutConfig = $this->createLayoutConfig();
-        $config = ArrayHelper::merge(ArrayHelper::getObjectVars($this), $layoutConfig);
-        AbstractContainer::configure($this, $config);
+        AbstractContainer::configure($this, $this->createLayoutConfig());
     }
 
     /**
