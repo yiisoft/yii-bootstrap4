@@ -66,14 +66,17 @@
         }
     },
     "autoload-dev": {
-        "psr-4": {"yii\\bootstrap4\\tests\\": "tests"}
+        "psr-4": {
+            "yii\\bootstrap4\\tests\\": "tests",
+            "yii\\captcha\\tests\\": "vendor/yiisoft/yii-captcha/tests"
+        }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "3.0.x-dev"
         },
         "config-plugin": {
-            "params": "config/tests.php"
+            "tests": "config/tests.php"
         }
     }
 }
