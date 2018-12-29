@@ -8,8 +8,8 @@
 namespace yii\bootstrap4;
 
 use yii\di\Initiable;
-use yii\helpers\ArrayHelper;
 use yii\di\AbstractContainer;
+use yii\helpers\ArrayHelper;
 
 /**
  * A Bootstrap 4 enhanced version of [[\yii\widgets\ActiveField]].
@@ -155,7 +155,7 @@ class ActiveField extends \yii\widgets\ActiveField implements Initiable
     public function init(): void
     {
         $layoutConfig = $this->createLayoutConfig();
-        $config = ArrayHelper::merge($layoutConfig, ArrayHelper::getObjectVars($this));
+        $config = ArrayHelper::merge(ArrayHelper::getObjectVars($this), $layoutConfig);
         AbstractContainer::configure($this, $config);
     }
 
