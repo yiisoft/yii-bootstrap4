@@ -38,7 +38,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "yiisoft/yii-captcha": "^3.0@dev",
         "yiisoft/yii-core": "^3.0@dev"
     },
     "require-dev": {
@@ -48,6 +47,7 @@
         "yiisoft/cache": "^3.0@dev",
         "yiisoft/yii-web": "^3.0@dev",
         "yiisoft/yii-jquery": "^3.0@dev",
+        "yiisoft/yii-captcha": "^3.0@dev",
         "hiqdev/composer-config-plugin": "^1.0@dev",
         "phpunit/phpunit": "^7.3"
     },
@@ -62,16 +62,15 @@
     ],
     "autoload": {
         "psr-4": {
-            "yii\\bootstrap4\\": "src",
-            "yii\\captcha\\tests\\": "vendor/yiisoft/yii-captcha/tests",
-            "yii\\bootstrap4\\tests\\": "tests"
+            "yii\\bootstrap4\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "yii\\captcha\\tests\\": "vendor/yiisoft/yii-captcha/tests",
             "yii\\bootstrap4\\tests\\": "tests"
-        }
+        },
+	"files": ["vendor/yiisoft/yii-captcha/tests/data/Session.php"]
     },
     "extra": {
         "branch-alias": {
