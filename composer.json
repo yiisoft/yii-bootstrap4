@@ -62,7 +62,9 @@
     ],
     "autoload": {
         "psr-4": {
-            "yii\\bootstrap4\\": "src"
+            "yii\\bootstrap4\\": "src",
+            "yii\\captcha\\tests\\": "vendor/yiisoft/yii-captcha/tests",
+            "yii\\bootstrap4\\tests\\": "tests"
         }
     },
     "autoload-dev": {
