@@ -47,7 +47,7 @@
         "yiisoft/cache": "^3.0@dev",
         "yiisoft/yii-web": "^3.0@dev",
         "yiisoft/yii-jquery": "^3.0@dev",
-        "yiisoft/yii-captcha": "^3.0@dev",
+        "yiisoft/yii-captcha": "dev-master",
         "hiqdev/composer-config-plugin": "^1.0@dev",
         "phpunit/phpunit": "^7.3"
     },
