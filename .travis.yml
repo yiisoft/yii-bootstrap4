@@ -11,11 +11,14 @@ matrix:
 # faster builds on new travis setup not using sudo
 sudo: false
 
-
 install:
   - travis_retry composer self-update && composer --version
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - travis_retry composer install --prefer-dist --no-interaction || ls -als vendor/yiisoft
+  - travis_retry composer install --prefer-dist --no-interaction
+  - ls -als vendor/yiisoft
+  - ls -als vendor/yiisoft/yii-captcha
+  - ls -als vendor/yiisoft/yii-captcha/tests
+  - ls -als vendor/yiisoft/yii-captcha/tests/data
 
 script:
   - ./vendor/bin/phpunit
