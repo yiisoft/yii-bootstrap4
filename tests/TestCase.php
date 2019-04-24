@@ -8,7 +8,7 @@ use Yiisoft\Arrays\ArrayHelper;
 /**
  * This is the base class for all yii framework unit tests.
  */
-abstract class TestCase extends \yii\Tests\TestCase
+abstract class TestCase extends \yii\tests\TestCase
 {
     protected function setUp()
     {
