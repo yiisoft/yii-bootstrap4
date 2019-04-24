@@ -68,9 +68,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "yii\\aptcha\\tests\\": "vendor/yiisoft/yii-captcha/tests",
-            "Yiisoft\\Yii\\Bootstrap4\\Tests": "tests"
-        }
+            "yii\\captcha\\tests\\": "vendor/yiisoft/yii-captcha/tests",
+            "Yiisoft\\Yii\\Bootstrap4\\Tests\\": "tests"
     },
     "extra": {
         "branch-alias": {

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package yii2-bootstrap4
+ * @package yii-bootstrap4
  * @author Simon Karlen <simi.albi@gmail.com>
  */
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package yii2-bootstrap
+ * @package yii-bootstrap4
  * @author Simon Karlen <simi.albi@gmail.com>
  */
 namespace Yiisoft\Yii\Bootstrap4\Tests\Data;
