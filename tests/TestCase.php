@@ -1,6 +1,6 @@
 <?php
 
-namespace yii\bootstrap4\tests;
+namespace Yiisoft\Yii\Bootstrap4\Tests;
 
 use yii\di\Container;
 use Yiisoft\Arrays\ArrayHelper;
@@ -8,7 +8,7 @@ use Yiisoft\Arrays\ArrayHelper;
 /**
  * This is the base class for all yii framework unit tests.
  */
-abstract class TestCase extends \yii\tests\TestCase
+abstract class TestCase extends \yii\Tests\TestCase
 {
     protected function setUp()
     {

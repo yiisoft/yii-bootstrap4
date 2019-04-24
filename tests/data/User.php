@@ -3,7 +3,7 @@
  * @package yii2-bootstrap
  * @author Simon Karlen <simi.albi@gmail.com>
  */
-namespace yii\bootstrap4\tests\data;
+namespace Yiisoft\Yii\Bootstrap4\Tests\Data;
 
 use yii\base\Model;
 
