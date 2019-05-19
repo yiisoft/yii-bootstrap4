@@ -1,7 +1,8 @@
 Migrating from yii-bootstrap3
 =============================
 
-yii-bootstrap4 is a major rewrite of the entire project (according Bootstrap 3 to Bootstrap 4 migration guide).
+According to [Migrating to v4](https://getbootstrap.com/docs/4.0/migration/), Bootstrap 4 is a major rewrite of the entire project.
+The same goes for yii-bootstrap4.
 The most notable changes are summarized below:
 
 ## General
