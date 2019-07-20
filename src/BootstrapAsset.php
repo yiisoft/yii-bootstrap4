@@ -7,7 +7,7 @@
 
 namespace Yiisoft\Yii\Bootstrap4;
 
-use yii\web\AssetBundle;
+use Yiisoft\Asset\AssetBundle;
 
 /**
  * Asset bundle for the Twitter bootstrap css files.
