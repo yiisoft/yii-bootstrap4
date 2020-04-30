@@ -12,6 +12,7 @@ namespace Yiisoft\Yii\Bootstrap4;
  * ```php
  * echo Button::widget()
  *     ->label('Action')
+ *     ->icon('play-circle')
  *     ->options(['class' => 'btn-lg']);
  * ```
  */
@@ -20,6 +21,8 @@ class Button extends Widget
     private string $tagName = 'button';
 
     private string $label = 'Button';
+    
+    private string $icon = false;
 
     private bool $encodeLabels = true;
 
@@ -34,7 +37,11 @@ class Button extends Widget
         Html::addCssClass($this->options, ['widget' => 'btn']);
 
         $this->registerPlugin('button', $this->options);
-
+        if(false !== $this->icon){
+            $this->encodeLabels = true;
+            $this->label = '<span class="glyphicon glyphicon-'.$this->icon.'"></span>'.$this->label;
+        }
+        
         return Html::tag(
             $this->tagName,
             $this->encodeLabels ? Html::encode($this->label) : $this->label,
@@ -61,6 +68,18 @@ class Button extends Widget
 
         return $this;
     }
+    
+    /**
+     * The button icon (bootstrap icons allowed)
+     * @param bool||string $iconName if FALSE no icon will be rendered 
+     */
+    public function icon(string $iconName): self
+    {
+        $this->icon = $iconName;
+        
+        return $this;
+    }
+
 
     /**
      * The HTML attributes for the widget container tag. The following special options are recognized.
