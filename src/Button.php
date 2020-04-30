@@ -22,7 +22,7 @@ class Button extends Widget
 
     private string $label = 'Button';
     
-    private string $icon = false;
+    private string $icon = '';
 
     private bool $encodeLabels = true;
 
@@ -37,7 +37,7 @@ class Button extends Widget
         Html::addCssClass($this->options, ['widget' => 'btn']);
 
         $this->registerPlugin('button', $this->options);
-        if(false !== $this->icon){
+        if(empty($this->icon)){
             $this->encodeLabels = true;
             $this->label = '<span class="glyphicon glyphicon-'.$this->icon.'"></span>'.$this->label;
         }
@@ -71,7 +71,7 @@ class Button extends Widget
     
     /**
      * The button icon (bootstrap icons allowed)
-     * @param bool||string $iconName if FALSE no icon will be rendered 
+     * @param string $iconName if empty no icon will be rendered 
      */
     public function icon(string $iconName): self
     {
