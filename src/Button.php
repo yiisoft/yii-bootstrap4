@@ -37,14 +37,11 @@ class Button extends Widget
         Html::addCssClass($this->options, ['widget' => 'btn']);
 
         $this->registerPlugin('button', $this->options);
-        if(empty($this->icon)){
-            $this->encodeLabels = true;
-            $this->label = '<span class="glyphicon glyphicon-'.$this->icon.'"></span>'.$this->label;
-        }
-        
+                
         return Html::tag(
             $this->tagName,
-            $this->encodeLabels ? Html::encode($this->label) : $this->label,
+            empty($this->icon)  ? ($this->encodeLabels ? Html::encode($this->label) : $this->label)
+                                : ($this->encodeLabels ? '<span class="glyphicon glyphicon-'.$this->icon.'"></span>' . Html::encode($this->label) : '<span class="glyphicon glyphicon-'.$this->icon.'"></span>' . $this->label),
             $this->options
         );
     }
