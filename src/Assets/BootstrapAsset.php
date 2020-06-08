@@ -15,9 +15,9 @@ use Yiisoft\Assets\AssetBundle;
  */
 class BootstrapAsset extends AssetBundle
 {
-    public ?string $basePath = '@basePath';
+    public ?string $basePath = '@assets';
 
-    public ?string $baseUrl = '@web';
+    public ?string $baseUrl = '@assetsUrl';
 
     public ?string $sourcePath = '@npm/bootstrap/dist';
 
