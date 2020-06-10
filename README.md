@@ -45,7 +45,7 @@ single line of code in a view file would render a Bootstrap Progress plugin:
 <?= Yiisoft\Yii\Bootstrap4\Progress::widget(['percent' => 60, 'label' => 'test']) ?>
 ```
 
-### Tests
+### Unit testing
 
 The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
 
@@ -53,9 +53,9 @@ The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
 ./vendor/bin/phpunit
 ```
 
-### Tests mutation
+### Mutation testing
 
-The package is tests mutation with [Infection](https://infection.github.io/). To run tests mutation:
+The package tests are checked with [Infection](https://infection.github.io/) mutation framework. To run it:
 
 ```php
 ./vendor/bin/infection
@@ -63,7 +63,7 @@ The package is tests mutation with [Infection](https://infection.github.io/). To
 
 ### Static analysis
 
-Static analysis with [Phan](https://github.com/phan/phan/wiki). To run static analysis:
+The code is statically analyzed with [Phan](https://github.com/phan/phan/wiki). To run static analysis:
 
 ```php
 ./vendor/bin/phan
