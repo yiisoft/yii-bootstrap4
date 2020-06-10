@@ -68,6 +68,3 @@ The code is statically analyzed with [Phan](https://github.com/phan/phan/wiki). 
 ```php
 ./vendor/bin/phan
 ```
-
-
-
