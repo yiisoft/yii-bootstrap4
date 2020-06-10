@@ -26,11 +26,9 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yiisoft/yii-bootstrap4/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/yii-bootstrap4/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/yiisoft/yii-bootstrap4/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/yii-bootstrap4/?branch=master)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyiisoft%2Fyii-bootstrap4%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/yiisoft/yii-bootstrap4/master)
-[![static analysis with phan](https://github.com/yiisoft/yii-bootstrap4/workflows/static%20analysis%20with%20phan/badge.svg)](https://github.com/yiisoft/yii-bootstrap4/actions?query=workflow%3A%22static+analysis+with+phan%22)
+[![static analysis](https://github.com/yiisoft/yii-bootstrap4/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/yii-bootstrap4/actions?query=workflow%3A%22static+analysis%22)
 
-
-Installation
-------------
+### Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
@@ -38,12 +36,35 @@ The preferred way to install this extension is through [composer](http://getcomp
 php composer.phar require --prefer-dist yiisoft/yii-bootstrap4
 ```
 
-Usage
-----
+### Usage
 
 For example, the following
 single line of code in a view file would render a Bootstrap Progress plugin:
 
 ```php
 <?= Yiisoft\Yii\Bootstrap4\Progress::widget(['percent' => 60, 'label' => 'test']) ?>
+```
+
+### Unit testing
+
+The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
+
+```php
+./vendor/bin/phpunit
+```
+
+### Mutation testing
+
+The package tests are checked with [Infection](https://infection.github.io/) mutation framework. To run it:
+
+```php
+./vendor/bin/infection
+```
+
+### Static analysis
+
+The code is statically analyzed with [Phan](https://github.com/phan/phan/wiki). To run static analysis:
+
+```php
+./vendor/bin/phan
 ```
