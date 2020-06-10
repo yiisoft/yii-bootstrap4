@@ -7,6 +7,8 @@ on:
 jobs:
   mutation:
     name: PHP ${{ matrix.php-version }}-${{ matrix.os }}
+    env:
+      extensions: ast
 
     runs-on: ${{ matrix.os }}
 
@@ -26,7 +28,8 @@ jobs:
         uses: "shivammathur/setup-php@v2"
         with:
           php-version: "${{ matrix.php-version }}"
-          tools: cs2pr, composer:v2, phan
+          extensions: ${{ env.extensions }}
+          tools: composer:v2, cs2pr
           coverage: none
 
       - name: Determine composer cache directory
