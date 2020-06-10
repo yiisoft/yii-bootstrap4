@@ -28,9 +28,7 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyiisoft%2Fyii-bootstrap4%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/yiisoft/yii-bootstrap4/master)
 [![static analysis](https://github.com/yiisoft/yii-bootstrap4/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/yii-bootstrap4/actions?query=workflow%3A%22static+analysis%22)
 
-
-Installation
-------------
+### Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
@@ -38,8 +36,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 php composer.phar require --prefer-dist yiisoft/yii-bootstrap4
 ```
 
-Usage
-----
+### Usage
 
 For example, the following
 single line of code in a view file would render a Bootstrap Progress plugin:
@@ -47,3 +44,30 @@ single line of code in a view file would render a Bootstrap Progress plugin:
 ```php
 <?= Yiisoft\Yii\Bootstrap4\Progress::widget(['percent' => 60, 'label' => 'test']) ?>
 ```
+
+### Tests
+
+The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
+
+```php
+./vendor/bin/phpunit
+```
+
+### Tests mutation
+
+The package is tests mutation with [Infection](https://infection.github.io/). To run tests mutation:
+
+```php
+./vendor/bin/infection
+```
+
+### Static analysis
+
+Static analysis with [Phan](https://github.com/phan/phan/wiki). To run static analysis:
+
+```php
+./vendor/bin/phan
+```
+
+
+
