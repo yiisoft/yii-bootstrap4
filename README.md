@@ -38,9 +38,7 @@ composer require yiisoft/yii-bootstrap4
 
 Bootstrap is a complex front-end solution, which includes CSS, JavaScript, fonts and so on. In order to allow you the most flexible control over Bootstrap components, this extension provides two asset bundles
 
-Two Assets are provided:
-
-- [BootstrapAsset:](https://getbootstrap.com/) CSS, SASS, JS  files.
+- [BootstrapAsset:](https://getbootstrap.com/) CSS, SASS, JavsScript files
 - [JqueryAsset:](https://jquery.com)  Provides the jQuery JavaScript library
 
 To use widgets only, register `BootstrapAsset::class`, which we can do in several ways explained below.
