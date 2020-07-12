@@ -1,7 +1,7 @@
 ## Class Yiisoft\Yii\Bootstrap4\Button
-Button renders a bootstrap button.
+Renders a [Bootstrap button component](https://getbootstrap.com/docs/4.5/components/buttons/).
 
-### Example
+### Usage
 
 ```php
 use Yiisoft\Yii\Bootstrap4\Button;

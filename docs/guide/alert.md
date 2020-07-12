@@ -1,7 +1,7 @@
 ## Class Yiisoft\Yii\Bootstrap4\Alert
-Alert renders an alert bootstrap component.
+Renders a [Bootstrap alert component](https://getbootstrap.com/docs/4.5/components/alerts/).
 
-### Example
+### Usage
 
 ```php
 use Yiisoft\Yii\Bootstrap4\Alert;

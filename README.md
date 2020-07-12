@@ -31,7 +31,7 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 ```
-php composer.phar require --prefer-dist yiisoft/yii-bootstrap4
+composer require yiisoft/yii-bootstrap4
 ```
 
 ### Usage
