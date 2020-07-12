@@ -12,17 +12,16 @@
 This [Yii Framework] extension encapsulates [Twitter Bootstrap 4] components and plugins in terms of Yii widgets, and thus makes using Bootstrap components/plugins in Yii applications extremely easy.
 
 [Yii Framework]:        http://www.yiiframework.com/
-[Twitter Bootstrap 4]:  https://getbootstrap.com/docs/4.1/getting-started/introduction/
+[Twitter Bootstrap 4]:  https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
-The extension includes support for the [Bootstrap 4](http://getbootstrap.com/) markup and components framework
-(also known as "Twitter Bootstrap"). Bootstrap is an excellent, responsive framework that can greatly speed up the
-client-side of your development process.
+Bootstrap is an excellent, responsive framework that can greatly speed up the client-side of your development process.
 
 The core of Bootstrap is represented by two parts:
 
 - CSS basics, such as a grid layout system, typography, helper classes, and responsive utilities.
 - Ready to use components, such as forms, menus, pagination, modal boxes, tabs etc.
 
+ #### Table of content
 - [Installation](#installation)
 - [Using Assets](#using-assets)
     - [Basic Usage](#basic-usage)
