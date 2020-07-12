@@ -37,7 +37,7 @@ The core of Bootstrap is represented by two parts:
     - [Yiisoft\Yii\Bootstrap4\ButtonGroup]
     - [Yiisoft\Yii\Bootstrap4\ButtonToolbar]
     - [Yiisoft\Yii\Bootstrap4\Carousel]
-    - [Yiisoft\Yii\Bootstrap4\Dropdown]
+    - [Yiisoft\Yii\Bootstrap4\Dropdown](dropdown.md)
     - [Yiisoft\Yii\Bootstrap4\Modal]
     - [Yiisoft\Yii\Bootstrap4\Nav]
     - [[Yiisoft\Yii\Bootstrap4\NavBar]
@@ -127,7 +127,7 @@ framework features. All widgets belong to `\Yiisoft\Yii\Bootstrap4` namespace:
 - [Yiisoft\Yii\Bootstrap4\ButtonGroup]
 - [Yiisoft\Yii\Bootstrap4\ButtonToolbar]
 - [Yiisoft\Yii\Bootstrap4\Carousel]
-- [Yiisoft\Yii\Bootstrap4\Dropdown]
+- [Yiisoft\Yii\Bootstrap4\Dropdown](dropdown.md)
 - [Yiisoft\Yii\Bootstrap4\Modal]
 - [Yiisoft\Yii\Bootstrap4\Nav]
 - [[Yiisoft\Yii\Bootstrap4\NavBar]
