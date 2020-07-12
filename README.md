@@ -42,7 +42,7 @@ single line of code in a view file would render a Bootstrap Progress plugin:
 ```php
 <?= Progress::widget()->percent('60')->label(test); ?>
 ```
-Read [Documentations](docs/guide/README.md) for more information
+Read [Documentation](docs/guide/README.md) for more information
 
 ### Unit testing
 
