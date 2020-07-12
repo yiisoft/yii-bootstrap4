@@ -1,7 +1,7 @@
 ## Class Yiisoft\Yii\Bootstrap4\Progress
 Progress renders a bootstrap progress bar component.
 
-### Usage
+### Example
 
 ```php
 use Yiisoft\Yii\Bootstrap4\Progress;

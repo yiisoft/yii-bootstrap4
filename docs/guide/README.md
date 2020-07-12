@@ -29,23 +29,21 @@ The core of Bootstrap is represented by two parts:
     - [Register asset in view layout or individual view](#register-asset-in-view-layout-or-individual-view)
     - [Register asset in application params](#register-asset-in-application-params)
 - [Widgets Usage](#widgets-usage)
-    - [Yiisoft\Yii\Bootstrap4\Accordion]()
-    - [Yiisoft\Yii\Bootstrap4\ActiveField]()
-    - [Yiisoft\Yii\Bootstrap4\ActiveForm]()
-    - [Yiisoft\Yii\Bootstrap4\Alert]()
-    - [Yiisoft\Yii\Bootstrap4\Breadcrumbs]()
+    - [Yiisoft\Yii\Bootstrap4\Accordion]
+    - [Yiisoft\Yii\Bootstrap4\Alert](alert.md)
+    - [Yiisoft\Yii\Bootstrap4\Breadcrumbs]
     - [Yiisoft\Yii\Bootstrap4\Button](button.md)
-    - [Yiisoft\Yii\Bootstrap4\ButtonDropdown]()
-    - [Yiisoft\Yii\Bootstrap4\ButtonGroup]()
-    - [Yiisoft\Yii\Bootstrap4\ButtonToolbar]()
-    - [Yiisoft\Yii\Bootstrap4\Carousel]()
-    - [Yiisoft\Yii\Bootstrap4\Dropdown]()
-    - [Yiisoft\Yii\Bootstrap4\Modal]()
-    - [Yiisoft\Yii\Bootstrap4\Nav]()
-    - [[Yiisoft\Yii\Bootstrap4\NavBar]()
+    - [Yiisoft\Yii\Bootstrap4\ButtonDropdown]
+    - [Yiisoft\Yii\Bootstrap4\ButtonGroup]
+    - [Yiisoft\Yii\Bootstrap4\ButtonToolbar]
+    - [Yiisoft\Yii\Bootstrap4\Carousel]
+    - [Yiisoft\Yii\Bootstrap4\Dropdown]
+    - [Yiisoft\Yii\Bootstrap4\Modal]
+    - [Yiisoft\Yii\Bootstrap4\Nav]
+    - [[Yiisoft\Yii\Bootstrap4\NavBar]
     - [Yiisoft\Yii\Bootstrap4\Progress](progress.md)
-    - [Yiisoft\Yii\Bootstrap4\Tabs]()
-    - [Yiisoft\Yii\Bootstrap4\ToggleButtonGroup]()
+    - [Yiisoft\Yii\Bootstrap4\Tabs]
+    - [Yiisoft\Yii\Bootstrap4\ToggleButtonGroup]
     
 ## Installation
 
@@ -57,7 +55,7 @@ composer require yiisoft/yii-bootstrap4
 ## Using assets
 Bootstrap is a complex front-end solution, which includes CSS, JavaScript, fonts and so on. In order to allow you the most flexible control over Bootstrap components, this extension provides two asset bundles
 
-- [BootstrapAsset:](https://getbootstrap.com/) CSS, SASS, JS  files.
+- [BootstrapAsset:](https://getbootstrap.com/) CSS, SASS, JavaScript  files.
 - [JqueryAsset:](https://jquery.com)  Provides the jQuery JavaScript library
 
 To use widgets only, register `BootstrapAsset::class`, which we can do in several ways explained below.
@@ -73,9 +71,7 @@ public $depends = [
 ```
 
 ### Register asset in view layout or individual view
-
 By registering the Asset in the `resources/layout/main.php` it will be available for all views. If you need it registered for individual view (such as `resources/views/site/contact.php`) only, register it in that view.
-
 
 ```php
 use  Yiisoft\Yii\Bootstrap4\Assets\BootstrapAsset;
@@ -124,11 +120,9 @@ Most complex bootstrap components are wrapped into Yii widgets to allow more rob
 framework features. All widgets belong to `\Yiisoft\Yii\Bootstrap4` namespace:
 
 - [Yiisoft\Yii\Bootstrap4\Accordion]
-- [Yiisoft\Yii\Bootstrap4\ActiveField]
-- [Yiisoft\Yii\Bootstrap4\ActiveForm]
-- [Yiisoft\Yii\Bootstrap4\Alert]
+- [Yiisoft\Yii\Bootstrap4\Alert](alert.md)
 - [Yiisoft\Yii\Bootstrap4\Breadcrumbs]
-- [Yiisoft\Yii\Bootstrap4\Button]
+- [Yiisoft\Yii\Bootstrap4\Button](button.md)
 - [Yiisoft\Yii\Bootstrap4\ButtonDropdown]
 - [Yiisoft\Yii\Bootstrap4\ButtonGroup]
 - [Yiisoft\Yii\Bootstrap4\ButtonToolbar]
@@ -137,6 +131,6 @@ framework features. All widgets belong to `\Yiisoft\Yii\Bootstrap4` namespace:
 - [Yiisoft\Yii\Bootstrap4\Modal]
 - [Yiisoft\Yii\Bootstrap4\Nav]
 - [[Yiisoft\Yii\Bootstrap4\NavBar]
-- [Yiisoft\Yii\Bootstrap4\Progress]
+- [Yiisoft\Yii\Bootstrap4\Progress](progress.md)
 - [Yiisoft\Yii\Bootstrap4\Tabs]
 - [Yiisoft\Yii\Bootstrap4\ToggleButtonGroup]
