@@ -16,8 +16,6 @@ in Yii applications extremely easy.
 [Yii Framework]:        http://www.yiiframework.com/
 [Twitter Bootstrap 4]:  https://getbootstrap.com/docs/4.1/getting-started/introduction/
 
-For license information check the [LICENSE](LICENSE.md)-file.
-
 Documentation is at [docs/guide/README.md](docs/guide/README.md).
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii-bootstrap4/v/stable.png)](https://packagist.org/packages/yiisoft/yii-bootstrap4)
@@ -32,87 +30,19 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-```php 
-composer require yiisoft/yii-bootstrap4
+```
+php composer.phar require --prefer-dist yiisoft/yii-bootstrap4
 ```
 
-Bootstrap is a complex front-end solution, which includes CSS, JavaScript, fonts and so on. In order to allow you the most flexible control over Bootstrap components, this extension provides two asset bundles
+### Usage
 
-Two Assets are provided:
-
-- [BootstrapAsset:](https://getbootstrap.com/) CSS, SASS, JS  files.
-- [JqueryAsset:](https://jquery.com)  Provides the jQuery JavaScript library
-
-To use widgets only, register `BootstrapAsset::class`, which we can do in several ways explained below.
-
-### Register asset in view layout or individual view
-
-By registering the Asset in the `resources/layout/main.php` it will be available for all views. If you need it registered for individual view (such as `resources/views/site/contact.php`) only, register it in that view.
-
+For example, the following
+single line of code in a view file would render a Bootstrap Progress plugin:
 
 ```php
-use  Yiisoft\Yii\Bootstrap4\Assets\BootstrapAsset;
-
-/**
- * @var Yiisoft\Assets\AssetManager $assetManager
- * @var Yiisoft\View\WebView $this
- */
-
-$assetManager->register([
-    BootstrapAsset::class,
-]);
-
-$this->setCssFiles($assetManager->getCssFiles());
-$this->setJsFiles($assetManager->getJsFiles());
+<?= Progress::widget()->percent('60')->label(test); ?>
 ```
-
-### Register asset in application params
-
-You can register asset in the application parameters, `config/params.php`. Asset will be available for all views of this application.
-
-```php
-use  Yiisoft\Yii\Bootstrap4\Assets\BootstrapAsset;
-
-'yiisoft/asset' => [
-    'assetManager' => [
-        'register' => [
-            BootstrapAsset::class
-        ],
-    ],
-],
-```
-
-Then in `main.php`:
-
-```php
-/* @var Yiisoft\View\WebView $this */
-
-$this->setCssFiles($assetManager->getCssFiles());
-$this->setJsFiles($assetManager->getJsFiles());
-```
-
-### Widgets usage
-
-Most complex bootstrap components are wrapped into Yii widgets to allow more robust syntax and integrate with
-framework features. All widgets belong to `\Yiisoft\Yii\Bootstrap4` namespace:
-
-- [[Yiisoft\Yii\Bootstrap4\Accordion|Accordion]]
-- [[Yiisoft\Yii\Bootstrap4\ActiveField|ActiveField]]
-- [[Yiisoft\Yii\Bootstrap4\ActiveForm|ActiveForm]]
-- [[Yiisoft\Yii\Bootstrap4\Alert|Alert]]
-- [[Yiisoft\Yii\Bootstrap4\Breadcrumbs|Breadcrumbs]]
-- [[Yiisoft\Yii\Bootstrap4\Button|Button]]
-- [[Yiisoft\Yii\Bootstrap4\ButtonDropdown|ButtonDropdown]]
-- [[Yiisoft\Yii\Bootstrap4\ButtonGroup|ButtonGroup]]
-- [[Yiisoft\Yii\Bootstrap4\ButtonToolbar|ButtonToolbar]]
-- [[Yiisoft\Yii\Bootstrap4\Carousel|Carousel]]
-- [[Yiisoft\Yii\Bootstrap4\Dropdown|Dropdown]]
-- [[Yiisoft\Yii\Bootstrap4\Modal|Modal]]
-- [[Yiisoft\Yii\Bootstrap4\Nav|Nav]]
-- [[Yiisoft\Yii\Bootstrap4\NavBar|NavBar]]
-- [[Yiisoft\Yii\Bootstrap4\Progress|Progress]]
-- [[Yiisoft\Yii\Bootstrap4\Tabs|Tabs]]
-- [[Yiisoft\Yii\Bootstrap4\ToggleButtonGroup|ToggleButtonGroup]]
+Read [Documentations](docs/guide/README.md) for more information
 
 ### Unit testing
 
@@ -137,4 +67,3 @@ The code is statically analyzed with [Phan](https://github.com/phan/phan/wiki). 
 ```php
 ./vendor/bin/phan
 ```
-********

@@ -26,7 +26,7 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
  *
  * // striped
  * echo Progress::widget()
- *     ->'bars'([
+ *     ->bars([
  *         ['percent' => '70', 'options' => ['class' => 'bg-warning progress-bar-striped']]
  *     ]);
  *
@@ -37,7 +37,7 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
  *
  * // stacked bars
  * echo Progress::widget()
- *     'bars' => ([
+ *     ->bars([
  *         ['percent' => '30', 'options' => ['class' => 'bg-danger']],
  *         ['percent' => '30', 'label' => 'test', 'options' => ['class' => 'bg-success']],
  *         ['percent' => '35', 'options' => ['class' => 'bg-warning']],
