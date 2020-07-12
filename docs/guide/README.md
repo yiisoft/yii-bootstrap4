@@ -30,18 +30,18 @@ The core of Bootstrap is represented by two parts:
 - [Widgets Usage](#widgets-usage)
     - [Yiisoft\Yii\Bootstrap4\Accordion]
     - [Yiisoft\Yii\Bootstrap4\Alert](alert.md)
-    - [Yiisoft\Yii\Bootstrap4\Breadcrumbs]
+    - [Yiisoft\Yii\Bootstrap4\Breadcrumbs](breadcrumbs.md)
     - [Yiisoft\Yii\Bootstrap4\Button](button.md)
     - [Yiisoft\Yii\Bootstrap4\ButtonDropdown]
     - [Yiisoft\Yii\Bootstrap4\ButtonGroup]
     - [Yiisoft\Yii\Bootstrap4\ButtonToolbar]
-    - [Yiisoft\Yii\Bootstrap4\Carousel]
+    - [Yiisoft\Yii\Bootstrap4\Carousel](carousel.md)
     - [Yiisoft\Yii\Bootstrap4\Dropdown](dropdown.md)
-    - [Yiisoft\Yii\Bootstrap4\Modal]
-    - [Yiisoft\Yii\Bootstrap4\Nav]
-    - [[Yiisoft\Yii\Bootstrap4\NavBar]
+    - [Yiisoft\Yii\Bootstrap4\Modal](modal.md)
+    - [Yiisoft\Yii\Bootstrap4\Nav](nav.md)
+    - [[Yiisoft\Yii\Bootstrap4\NavBar](nav-bar.md)
     - [Yiisoft\Yii\Bootstrap4\Progress](progress.md)
-    - [Yiisoft\Yii\Bootstrap4\Tabs]
+    - [Yiisoft\Yii\Bootstrap4\Tabs](tabs.md)
     - [Yiisoft\Yii\Bootstrap4\ToggleButtonGroup]
     
 ## Installation
@@ -61,7 +61,7 @@ To use widgets only, register `BootstrapAsset::class`, which we can do in severa
 
 ### Basic Usage
 Yii provides a convenient way to include bootstrap assets in your pages with a single line added to `AppAsset.php` located in your
-`@app/Asset` directory:
+`@root/src/Asset` directory:
 
 ```php
 public $depends = [
@@ -113,6 +113,13 @@ $this->setCssFiles($assetManager->getCssFiles());
 $this->setJsFiles($assetManager->getJsFiles());
 ```
 
+---
+**NOTE**
+
+For more detailed description read [yiisoft\assets package documentation](https://github.com/yiisoft/assets/blob/master/README.md).
+
+---
+
 ## Widgets usage
 
 Most complex bootstrap components are wrapped into Yii widgets to allow more robust syntax and integrate with
@@ -120,16 +127,16 @@ framework features. All widgets belong to `\Yiisoft\Yii\Bootstrap4` namespace:
 
 - [Yiisoft\Yii\Bootstrap4\Accordion]
 - [Yiisoft\Yii\Bootstrap4\Alert](alert.md)
-- [Yiisoft\Yii\Bootstrap4\Breadcrumbs]
+- [Yiisoft\Yii\Bootstrap4\Breadcrumbs](breadcrumbs.md)
 - [Yiisoft\Yii\Bootstrap4\Button](button.md)
 - [Yiisoft\Yii\Bootstrap4\ButtonDropdown]
 - [Yiisoft\Yii\Bootstrap4\ButtonGroup]
 - [Yiisoft\Yii\Bootstrap4\ButtonToolbar]
-- [Yiisoft\Yii\Bootstrap4\Carousel]
+- [Yiisoft\Yii\Bootstrap4\Carousel](carousel.md)
 - [Yiisoft\Yii\Bootstrap4\Dropdown](dropdown.md)
-- [Yiisoft\Yii\Bootstrap4\Modal]
-- [Yiisoft\Yii\Bootstrap4\Nav]
-- [[Yiisoft\Yii\Bootstrap4\NavBar]
+- [Yiisoft\Yii\Bootstrap4\Modal](modal.md)
+- [Yiisoft\Yii\Bootstrap4\Nav](nav.md)
+- [[Yiisoft\Yii\Bootstrap4\NavBar](nav-bar.md)
 - [Yiisoft\Yii\Bootstrap4\Progress](progress.md)
-- [Yiisoft\Yii\Bootstrap4\Tabs]
+- [Yiisoft\Yii\Bootstrap4\Tabs](tabs.md)
 - [Yiisoft\Yii\Bootstrap4\ToggleButtonGroup]
