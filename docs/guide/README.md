@@ -21,7 +21,7 @@ The core of Bootstrap is represented by two parts:
 - CSS basics, such as a grid layout system, typography, helper classes, and responsive utilities.
 - Ready to use components, such as forms, menus, pagination, modal boxes, tabs etc.
 
- #### Table of content
+ #### Table of contents
 - [Installation](#installation)
 - [Using Assets](#using-assets)
     - [Basic Usage](#basic-usage)
