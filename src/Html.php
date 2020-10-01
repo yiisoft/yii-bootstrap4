@@ -19,7 +19,7 @@ class Html extends \Yiisoft\Html\Html
      * In particular, if the value of the `data` attribute is `['name' => 'xyz', 'age' => 13]`, two attributes will be
      * generated instead of one: `data-name="xyz" data-age="13"`.
      */
-    public static array $dataAttributes = ['data', 'data-ng', 'ng', 'aria'];
+    protected const DATA_ATTRIBUTES = ['data', 'data-ng', 'ng', 'aria'];
 
     /**
      * Renders Bootstrap static form control.
