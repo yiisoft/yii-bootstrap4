@@ -38,11 +38,8 @@ class Carousel extends Widget
     ];
 
     private bool $showIndicators = true;
-
     private array $items = [];
-
     private bool $crossfade = false;
-
     private array $options = ['data-ride' => 'carousel'];
 
     protected function run(): string

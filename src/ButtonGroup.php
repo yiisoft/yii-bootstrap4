@@ -84,7 +84,7 @@ class ButtonGroup extends Widget
                                  ->encodeLabels($button['encodeLabel'])
                                  ->label($button['label'])
                                  ->options($button['options'])
-                                 ->run();
+                                 ->render();
             } else {
                 $buttons[] = $button;
             }

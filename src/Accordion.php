@@ -47,13 +47,9 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
 class Accordion extends Widget
 {
     private array $items = [];
-
     private bool $encodeLabels = true;
-
     private bool $autoCloseItems = true;
-
     private array $itemToggleOptions = [];
-
     private array $options = [];
 
     protected function run(): string
@@ -153,6 +149,7 @@ class Accordion extends Widget
             ], $this->itemToggleOptions);
             $itemToggleTag = ArrayHelper::remove($itemToggleOptions, 'tag', 'button');
 
+            /** @psalm-suppress ConflictingReferenceConstraint */
             if ($itemToggleTag === 'a') {
                 ArrayHelper::remove($itemToggleOptions, 'data-target');
                 $headerToggle = Html::a($header, '#' . $id, $itemToggleOptions) . "\n";

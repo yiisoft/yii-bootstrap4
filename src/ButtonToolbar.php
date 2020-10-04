@@ -82,7 +82,7 @@ class ButtonToolbar extends Widget
                 $buttonGroups[] = ButtonGroup::widget()
                     ->buttons($group['buttons'])
                     ->options($group['options'])
-                    ->run();
+                    ->render();
             } else {
                 $buttonGroups[] = $group;
             }

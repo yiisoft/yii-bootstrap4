@@ -42,27 +42,16 @@ class Modal extends Widget
     public const SIZE_DEFAULT = '';
 
     private ?string $title = null;
-
     private array $titleOptions = [];
-
     private array $headerOptions = [];
-
     private array $bodyOptions = [];
-
     private ?string $footer = null;
-
     private array $footerOptions = [];
-
     private ?string $size = null;
-
     private array $closeButton = [];
-
     private bool $closeButtonEnabled = true;
-
     private array $toggleButton = [];
-
     private bool $toggleButtonEnabled = true;
-
     private array $options = [];
 
     public function start(): string

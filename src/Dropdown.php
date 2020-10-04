@@ -28,11 +28,8 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
 class Dropdown extends Widget
 {
     private array $items = [];
-
     private bool $encodeLabels = true;
-
     private array $submenuOptions = [];
-
     private array $options = [];
 
     protected function run(): string

@@ -102,20 +102,14 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
  */
 class Nav extends Widget
 {
+    private string $label = '';
     private array $items = [];
-
     private bool $encodeLabels = true;
-
     private bool $activateItems = true;
-
     private bool $activateParents = false;
-
     private ?string $currentPath = null;
-
     private array $params = [];
-
     private string $dropdownClass = Dropdown::class;
-
     private array $options = [];
 
     protected function run(): string
@@ -218,15 +212,16 @@ class Nav extends Widget
      */
     protected function renderDropdown(array $items, array $parentItem): string
     {
-        /** @var Widget $dropdownClass */
+        /** @var Dropdown $dropdownClass */
         $dropdownClass = $this->dropdownClass;
 
+        /** @psalm-suppress UndefinedMethod */
         return $dropdownClass::widget()
             ->enableClientOptions(false)
             ->encodeLabels($this->encodeLabels)
             ->items($items)
             ->options(ArrayHelper::getValue($parentItem, 'dropdownOptions', []))
-            ->run();
+            ->render();
     }
 
     /**

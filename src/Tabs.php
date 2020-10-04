@@ -53,26 +53,16 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
  */
 class Tabs extends Widget
 {
+    private array $panes = [];
     private array $items = [];
-
     private array $itemOptions = [];
-
     private array $headerOptions = [];
-
     private array $linkOptions = [];
-
     private bool $encodeLabels = true;
-
     private string $navType = 'nav-tabs';
-
     private bool $renderTabContent = true;
-
     private array $tabContentOptions = [];
-
-    public string $dropdownClass = Dropdown::class;
-
-    protected array $panes = [];
-
+    private string $dropdownClass = Dropdown::class;
     private array $options = [];
 
     protected function run(): string
@@ -92,7 +82,7 @@ class Tabs extends Widget
                 ->options(ArrayHelper::merge(['role' => 'tablist'], $this->options))
                 ->items($this->items)
                 ->encodeLabels($this->encodeLabels)
-                ->run()
+                ->render()
                 . $this->renderPanes($this->panes);
     }
 

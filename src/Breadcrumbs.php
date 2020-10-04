@@ -21,19 +21,12 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
 class Breadcrumbs extends Widget
 {
     private string $tag = 'ol';
-
     private bool $encodeLabels = true;
-
     private array $homeLink = [];
-
     private array $links = [];
-
     private string $itemTemplate = "<li class=\"breadcrumb-item\">{link}</li>\n";
-
     private string $activeItemTemplate = "<li class=\"breadcrumb-item active\" aria-current=\"page\">{link}</li>\n";
-
     private array $navOptions = ['aria-label' => 'breadcrumb'];
-
     private array $options = [];
 
     protected function run(): string

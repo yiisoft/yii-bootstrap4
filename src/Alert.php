@@ -23,11 +23,8 @@ use Yiisoft\Html\Html;
 class Alert extends Widget
 {
     private ?string $body = null;
-
     private array $closeButton = [];
-
     private bool $closeButtonEnabled = true;
-
     private array $options = [];
 
     protected function run(): string

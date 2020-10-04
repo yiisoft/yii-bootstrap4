@@ -47,23 +47,14 @@ class ButtonDropdown extends Widget
     public const DIRECTION_UP = 'up';
 
     private string $label = 'Button';
-
     private array $options = [];
-
     private array $buttonOptions = [];
-
     private array $dropdown = [];
-
     private string $direction = self::DIRECTION_DOWN;
-
     private bool $split = false;
-
     private string $tagName = 'button';
-
     private bool $encodeLabels = true;
-
     private string $dropdownClass = Dropdown::class;
-
     private bool $renderContainer = true;
 
     protected function run(): string
@@ -121,7 +112,7 @@ class ButtonDropdown extends Widget
                 ->label('<span class="sr-only">Toggle Dropdown</span>')
                 ->encodeLabels(false)
                 ->options($this->buttonOptions)
-                ->run();
+                ->render();
         } else {
             $buttonOptions = $this->buttonOptions;
 
@@ -143,7 +134,7 @@ class ButtonDropdown extends Widget
                 ->label($label)
                 ->options($buttonOptions)
                 ->encodeLabels(false)
-                ->run()
+                ->render()
                 . "\n" . $splitButton;
     }
 
@@ -157,6 +148,7 @@ class ButtonDropdown extends Widget
         /** @var Widget $dropdownClass */
         $dropdownClass = $this->dropdownClass;
 
+        /** @psalm-suppress UndefinedMethod */
         return $dropdownClass::widget()
             ->items($this->dropdown['items'])
             ->render();

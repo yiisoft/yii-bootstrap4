@@ -20,11 +20,8 @@ use Yiisoft\Html\Html;
 class Button extends Widget
 {
     private string $tagName = 'button';
-
     private string $label = 'Button';
-
     private bool $encodeLabels = true;
-
     private array $options = [];
 
     protected function run(): string

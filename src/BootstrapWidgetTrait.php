@@ -25,13 +25,9 @@ use Yiisoft\Json\Json;
 trait BootstrapWidgetTrait
 {
     private ?AssetManager $assetManager = null;
-
     private array $clientOptions = [];
-
     private array $clientEvents = [];
-
     private bool $enableClientOptions = false;
-
     private ?object $webView = null;
 
     /**
