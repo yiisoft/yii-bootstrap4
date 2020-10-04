@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4\Tests;
 
-use Yiisoft\Composer\Config\Builder;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
@@ -41,10 +40,15 @@ abstract class TestCase extends BaseTestCase
 
     protected function setUp(): void
     {
-        parent::setUp();
-        $config = require Builder::path('tests');
-        $this->container = new Container($config);
-        $this->aliases = $this->container->get(Aliases::class);
+        $this->container = new Container([]);
+        $this->aliases = new Aliases([
+            '@root' => dirname(__DIR__, 1),
+            '@public' => '@root/tests/public',
+            '@basePath' => '@public/assets',
+            '@baseUrl'  => '/',
+            '@npm' => '@root/node_modules',
+            '@view' => '@public/view',
+        ]);
 
         WidgetFactory::initialize($this->container, []);
     }

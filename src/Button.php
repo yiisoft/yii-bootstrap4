@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
+use Yiisoft\Html\Html;
+
 /**
  * Button renders a bootstrap button.
  *

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
+use Yiisoft\Html\Html;
+
 /**
  * ButtonToolbar Combines sets of button groups into button toolbars for more complex components.
  * Use utility classes as needed to space out groups, buttons, and more.
