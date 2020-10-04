@@ -42,7 +42,6 @@ phpunit.result.cache
 # NPM packages
 /node_modules
 .env
-package.json
 yarn.lock
 
 #codeception
