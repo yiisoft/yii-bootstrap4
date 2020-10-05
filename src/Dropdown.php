@@ -200,11 +200,12 @@ class Dropdown extends Widget
     }
 
     /**
-     * @var array the HTML attributes for the widget container tag. The following special options are recognized.
-     *
-     * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     * @param array @value the HTML attributes for the widget container tag. The following special options are
+     * recognized.
      *
      * @return $this
+     *
+     * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
      */
     public function options(array $value): self
     {
