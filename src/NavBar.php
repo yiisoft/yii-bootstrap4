@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yiisoft\Yii\Bootstrap4;
 
 use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
 
 /**
  * NavBar renders a navbar HTML component.
@@ -108,25 +109,15 @@ use Yiisoft\Arrays\ArrayHelper;
 class NavBar extends Widget
 {
     private array $collapseOptions = [];
-
     private ?string $brandLabel = null;
-
     private ?string $brandImage = null;
-
     private ?string $brandUrl = '/';
-
     private array $brandOptions = [];
-
     private string $screenReaderToggleText = 'Toggle navigation';
-
     private string $togglerContent = '<span class="navbar-toggler-icon"></span>';
-
     private array $togglerOptions = [];
-
     private bool $renderInnerContainer = true;
-
     private array $innerContainerOptions = [];
-
     private array $options = [];
 
     public function start(): string

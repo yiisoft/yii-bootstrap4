@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yiisoft\Yii\Bootstrap4;
 
 use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
 
 /**
  * Modal renders a modal window that can be toggled by clicking on a button.
@@ -41,27 +42,16 @@ class Modal extends Widget
     public const SIZE_DEFAULT = '';
 
     private ?string $title = null;
-
     private array $titleOptions = [];
-
     private array $headerOptions = [];
-
     private array $bodyOptions = [];
-
     private ?string $footer = null;
-
     private array $footerOptions = [];
-
     private ?string $size = null;
-
     private array $closeButton = [];
-
     private bool $closeButtonEnabled = true;
-
     private array $toggleButton = [];
-
     private bool $toggleButtonEnabled = true;
-
     private array $options = [];
 
     public function start(): string

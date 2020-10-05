@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4\Tests;
 
-use Yiisoft\Yii\Bootstrap4\Html;
+use Yiisoft\Html\Html;
 use Yiisoft\Yii\Bootstrap4\Tabs;
 
 /**

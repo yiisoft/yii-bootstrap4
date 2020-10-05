@@ -8,12 +8,9 @@ abstract class Widget extends \Yiisoft\Widget\Widget
 {
     use BootstrapWidgetTrait;
 
-    private ?string $id = null;
-
+    private string $id;
     private bool $autoGenerate = true;
-
     private static int $counter = 0;
-
     private static string $autoIdPrefix = 'w';
 
     /**

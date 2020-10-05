@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yiisoft\Yii\Bootstrap4;
 
 use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
 
 /**
  * ButtonDropdown renders a group or split button dropdown bootstrap component.
@@ -46,23 +47,14 @@ class ButtonDropdown extends Widget
     public const DIRECTION_UP = 'up';
 
     private string $label = 'Button';
-
     private array $options = [];
-
     private array $buttonOptions = [];
-
     private array $dropdown = [];
-
     private string $direction = self::DIRECTION_DOWN;
-
     private bool $split = false;
-
     private string $tagName = 'button';
-
     private bool $encodeLabels = true;
-
     private string $dropdownClass = Dropdown::class;
-
     private bool $renderContainer = true;
 
     protected function run(): string
@@ -120,7 +112,7 @@ class ButtonDropdown extends Widget
                 ->label('<span class="sr-only">Toggle Dropdown</span>')
                 ->encodeLabels(false)
                 ->options($this->buttonOptions)
-                ->run();
+                ->render();
         } else {
             $buttonOptions = $this->buttonOptions;
 
@@ -142,7 +134,7 @@ class ButtonDropdown extends Widget
                 ->label($label)
                 ->options($buttonOptions)
                 ->encodeLabels(false)
-                ->run()
+                ->render()
                 . "\n" . $splitButton;
     }
 
@@ -153,7 +145,6 @@ class ButtonDropdown extends Widget
      */
     protected function renderDropdown(): string
     {
-        /** @var Widget $dropdownClass */
         $dropdownClass = $this->dropdownClass;
 
         return $dropdownClass::widget()
