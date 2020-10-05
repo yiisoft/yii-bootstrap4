@@ -6,15 +6,13 @@ namespace Yiisoft\Yii\Bootstrap4\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use Psr\Container\ContainerInterface;
-use Psr\EventDispatcher\EventDispatcherInterface;
-use Psr\EventDispatcher\ListenerProviderInterface;
-use Psr\Log\LoggerInterface;
+use RuntimeException;
 use Yiisoft\Aliases\Aliases;
-use Yiisoft\Assets\AssetManager;
-use Yiisoft\Files\FileHelper;
 use Yiisoft\Di\Container;
-use Yiisoft\Widget\Widget;
+use Yiisoft\Files\FileHelper;
 use Yiisoft\Widget\WidgetFactory;
+
+use function readdir;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -24,19 +22,9 @@ abstract class TestCase extends BaseTestCase
     protected $aliases;
 
     /**
-     * @var AssetManager $assetManager
-     */
-    protected $assetManager;
-
-    /**
      * @var ContainerInterface $container
      */
     private $container;
-
-    /**
-     * @var WebView $webView
-     */
-    protected $webView;
 
     protected function setUp(): void
     {
@@ -94,7 +82,7 @@ abstract class TestCase extends BaseTestCase
     {
         $handle = opendir($dir = $this->aliases->get($basePath));
         if ($handle === false) {
-            throw new \Exception("Unable to open directory: $dir");
+            throw new RuntimeException("Unable to open directory: $dir");
         }
         while (($file = readdir($handle)) !== false) {
             if ($file === '.' || $file === '..' || $file === '.gitignore') {

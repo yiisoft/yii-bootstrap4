@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
+use JsonException;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
 
@@ -197,6 +198,8 @@ class NavBar extends Widget
     /**
      * Renders collapsible toggle button.
      *
+     * @throws JsonException
+     *
      * @return string the rendering toggle button.
      */
     protected function renderToggleButton(): string
@@ -224,6 +227,10 @@ class NavBar extends Widget
      * The HTML attributes for the container tag. The following special options are recognized.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function collapseOptions(array $value): self
     {
@@ -234,6 +241,10 @@ class NavBar extends Widget
 
     /**
      * The text of the brand or empty if it's not used. Note that this is not HTML-encoded.
+     *
+     * @param string|null $value
+     *
+     * @return $this
      *
      * {@see https://getbootstrap.com/docs/4.2/components/navbar/}
      */
@@ -247,6 +258,10 @@ class NavBar extends Widget
     /**
      * Src of the brand image or empty if it's not used. Note that this param will override `$this->brandLabel` param.
      *
+     * @param string|null $value
+     *
+     * @return $this
+     *
      * {@see https://getbootstrap.com/docs/4.2/components/navbar/}
      */
     public function brandImage(?string $value): self
@@ -259,6 +274,10 @@ class NavBar extends Widget
     /**
      * The URL for the brand's hyperlink tag and will be used for the "href" attribute of the brand link. Default value
      * is '/' will be used. You may set it to `null` if you want to have no link at all.
+     *
+     * @param string|null $value
+     *
+     * @return $this
      */
     public function brandUrl(?string $value): self
     {
@@ -271,6 +290,10 @@ class NavBar extends Widget
      * The HTML attributes of the brand link.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function brandOptions(array $value): self
     {
@@ -281,6 +304,10 @@ class NavBar extends Widget
 
     /**
      * Text to show for screen readers for the button to toggle the navbar.
+     *
+     * @param string $value
+     *
+     * @return $this
      */
     public function screenReaderToggleText(string $value): self
     {
@@ -291,6 +318,10 @@ class NavBar extends Widget
 
     /**
      * The toggle button content. Defaults to bootstrap 4 default `<span class="navbar-toggler-icon"></span>`.
+     *
+     * @param string $value
+     *
+     * @return $this
      */
     public function togglerContent(string $value): self
     {
@@ -303,6 +334,10 @@ class NavBar extends Widget
      * The HTML attributes of the navbar toggler button.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function togglerOptions(array $value): self
     {
@@ -314,6 +349,10 @@ class NavBar extends Widget
     /**
      * Whether the navbar content should be included in an inner div container which by default adds left and right
      * padding. Set this to false for a 100% width navbar.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function renderInnerContainer(bool $value): self
     {
@@ -326,6 +365,10 @@ class NavBar extends Widget
      * The HTML attributes of the inner container.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function innerContainerOptions(array $value): self
     {
@@ -338,6 +381,10 @@ class NavBar extends Widget
      * The HTML attributes for the widget container tag. The following special options are recognized.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function options(array $value): self
     {

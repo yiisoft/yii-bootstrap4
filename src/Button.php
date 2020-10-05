@@ -43,6 +43,10 @@ class Button extends Widget
 
     /**
      * Whether the label should be HTML-encoded.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function encodeLabels(bool $value): self
     {
@@ -53,6 +57,10 @@ class Button extends Widget
 
     /**
      * The button label
+     *
+     * @param string $value
+     *
+     * @return $this
      */
     public function label(string $value): self
     {
@@ -65,6 +73,10 @@ class Button extends Widget
      * The HTML attributes for the widget container tag. The following special options are recognized.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function options(array $value): self
     {
@@ -75,6 +87,10 @@ class Button extends Widget
 
     /**
      * The tag to use to render the button.
+     *
+     * @param string $value
+     *
+     * @return $this
      */
     public function tagName(string $value): self
     {
