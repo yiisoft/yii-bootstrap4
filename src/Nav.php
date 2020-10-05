@@ -212,10 +212,8 @@ class Nav extends Widget
      */
     protected function renderDropdown(array $items, array $parentItem): string
     {
-        /** @var Dropdown $dropdownClass */
         $dropdownClass = $this->dropdownClass;
 
-        /** @psalm-suppress UndefinedMethod */
         return $dropdownClass::widget()
             ->enableClientOptions(false)
             ->encodeLabels($this->encodeLabels)

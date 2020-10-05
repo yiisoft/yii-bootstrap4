@@ -145,10 +145,8 @@ class ButtonDropdown extends Widget
      */
     protected function renderDropdown(): string
     {
-        /** @var Widget $dropdownClass */
         $dropdownClass = $this->dropdownClass;
 
-        /** @psalm-suppress UndefinedMethod */
         return $dropdownClass::widget()
             ->items($this->dropdown['items'])
             ->render();
