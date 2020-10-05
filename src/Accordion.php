@@ -4,9 +4,18 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
+use JsonException;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Exception\InvalidConfigException;
+
+use function array_key_exists;
+use function array_merge;
+use function is_array;
+use function is_int;
+use function is_numeric;
+use function is_object;
+use function is_string;
 
 /**
  * Accordion renders an accordion bootstrap javascript component.
@@ -72,9 +81,9 @@ class Accordion extends Widget
     /**
      * Renders collapsible items as specified on {@see items}.
      *
-     * @return string the rendering result
+     * @throws InvalidConfigException|JsonException|
      *
-     * @throws InvalidConfigException
+     * @return string the rendering result.
      */
     public function renderItems(): string
     {
@@ -82,12 +91,12 @@ class Accordion extends Widget
         $index = 0;
 
         foreach ($this->items as $key => $item) {
-            if (!\is_array($item)) {
+            if (!is_array($item)) {
                 $item = ['content' => $item];
             }
 
-            if (!\array_key_exists('label', $item)) {
-                if (\is_int($key)) {
+            if (!array_key_exists('label', $item)) {
+                if (is_int($key)) {
                     throw new InvalidConfigException("The 'label' option is required.");
                 }
 
@@ -110,15 +119,15 @@ class Accordion extends Widget
      *
      * @param string $header a label of the item group {@see items}
      * @param array $item a single item from {@see items}
-     * @param int $index the item index as each item group content must have an id
+     * @param int $index the item index as each item group content must have an id.
      *
-     * @throws InvalidConfigException
+     * @throws InvalidConfigException|JsonException
      *
      * @return string the rendering result
      */
     public function renderItem(string $header, array $item, int $index): string
     {
-        if (\array_key_exists('content', $item)) {
+        if (array_key_exists('content', $item)) {
             $id = $this->options['id'] . '-collapse' . $index;
             $options = ArrayHelper::getValue($item, 'contentOptions', []);
             $options['id'] = $id;
@@ -139,7 +148,7 @@ class Accordion extends Widget
                 $header = Html::encode($header);
             }
 
-            $itemToggleOptions = \array_merge([
+            $itemToggleOptions = array_merge([
                 'tag' => 'button',
                 'type' => 'button',
                 'data-toggle' => 'collapse',
@@ -164,9 +173,9 @@ class Accordion extends Widget
 
             $header = Html::tag('h5', $headerToggle, ['class' => 'mb-0']);
 
-            if (\is_string($item['content']) || \is_numeric($item['content']) || \is_object($item['content'])) {
+            if (is_string($item['content']) || is_numeric($item['content']) || is_object($item['content'])) {
                 $content = Html::tag('div', $item['content'], ['class' => 'card-body']) . "\n";
-            } elseif (\is_array($item['content'])) {
+            } elseif (is_array($item['content'])) {
                 $content = Html::ul($item['content'], [
                         'class' => 'list-group',
                         'itemOptions' => [
@@ -204,6 +213,10 @@ class Accordion extends Widget
      * Whether to close other items if an item is opened. Defaults to `true` which causes an accordion effect.
      *
      * Set this to `false` to allow keeping multiple items open at once.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function autoCloseItems(bool $value): self
     {
@@ -214,6 +227,10 @@ class Accordion extends Widget
 
     /**
      * Whether the labels for header items should be HTML-encoded.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function encodeLabels(bool $value): self
     {
@@ -252,6 +269,9 @@ class Accordion extends Widget
      *   ]
      * ])
      * ```
+     * @param array $value
+     *
+     * @return $this
      */
     public function items(array $value): self
     {
@@ -271,6 +291,9 @@ class Accordion extends Widget
      *     'class' => 'custom-toggle',
      * ]
      * ```
+     * @param array $value
+     *
+     * @return $this
      */
     public function itemToggleOptions(array $value): self
     {
@@ -281,6 +304,10 @@ class Accordion extends Widget
 
     /**
      * The HTML attributes for the widget container tag. The following special options are recognized.
+     *
+     * @param array $value
+     *
+     * @return $this
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
      */
