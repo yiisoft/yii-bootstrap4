@@ -334,7 +334,7 @@ class Nav extends Widget
         return $this;
     }
 
-     public function label(string $value): self
+    public function label(string $value): self
     {
         $this->label = $value;
 
