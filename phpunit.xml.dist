@@ -1,29 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<phpunit backupGlobals="false"
-         colors="true"
-         verbose="true"
-         bootstrap="vendor/autoload.php"
-         failOnRisky="true"
-         failOnWarning="true">
-    <php>
-        <ini name="error_reporting" value="-1"/>
-    </php>
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true" verbose="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="false">
 
-    <testsuites>
-        <testsuite name="Yii Bootstrap4 Tests">
-            <directory>./tests</directory>
-        </testsuite>
-    </testsuites>
+  <coverage>
+    <include>
+      <directory>./src</directory>
+    </include>
+    <exclude>
+      <directory>./tests</directory>
+      <directory>./vendor</directory>
+    </exclude>
+  </coverage>
 
-    <filter>
-        <whitelist>
-            <directory>./src</directory>
-            <exclude>
-                <directory>./src/Assets</directory>
-                <directory>./tests</directory>
-                <directory>./vendor</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+  <testsuites>
+    <testsuite name="yiiBootstrap4">
+      <directory>./tests</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>
+
