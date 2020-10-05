@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
+use JsonException;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Exception\InvalidConfigException;
+
+use function array_key_exists;
+use function array_merge;
+use function array_merge_recursive;
+use function is_string;
 
 /**
  * Dropdown renders a Bootstrap dropdown menu component.
@@ -51,16 +57,16 @@ class Dropdown extends Widget
      * @param array $items the menu items to be rendered
      * @param array $options the container HTML attributes
      *
-     * @return string the rendering result.
+     * @throws JsonException|InvalidConfigException if the label option is not specified in  one of the items.
      *
-     * @throws InvalidConfigException if the label option is not specified in one of the items.
+     * @return string the rendering result.
      */
     protected function renderItems(array $items, array $options = []): string
     {
         $lines = [];
 
         foreach ($items as $item) {
-            if (\is_string($item)) {
+            if (is_string($item)) {
                 $lines[] = ($item === '-')
                     ? Html::tag('div', '', ['class' => 'dropdown-divider'])
                     : $item;
@@ -71,7 +77,7 @@ class Dropdown extends Widget
                 continue;
             }
 
-            if (!\array_key_exists('label', $item)) {
+            if (!array_key_exists('label', $item)) {
                 throw new InvalidConfigException("The 'label' option is required.");
             }
 
@@ -106,7 +112,7 @@ class Dropdown extends Widget
                 $submenuOptions = $this->submenuOptions;
 
                 if (isset($item['submenuOptions'])) {
-                    $submenuOptions = \array_merge($submenuOptions, $item['submenuOptions']);
+                    $submenuOptions = array_merge($submenuOptions, $item['submenuOptions']);
                 }
 
                 Html::addCssClass($submenuOptions, ['dropdown-submenu']);
@@ -114,17 +120,17 @@ class Dropdown extends Widget
 
                 $lines[] = Html::beginTag(
                     'div',
-                    \array_merge_recursive(['class' => ['dropdown'], 'aria-expanded' => 'false'], $itemOptions)
+                    array_merge_recursive(['class' => ['dropdown'], 'aria-expanded' => 'false'], $itemOptions)
                 );
 
-                $lines[] = Html::a($label, $url, \array_merge([
+                $lines[] = Html::a($label, $url, array_merge([
                     'data-toggle' => 'dropdown',
                     'aria-haspopup' => 'true',
                     'aria-expanded' => 'false',
                     'role' => 'button'
                 ], $linkOptions));
 
-                $lines[] = Dropdown::widget()
+                $lines[] = self::widget()
                     ->items($item['items'])
                     ->options($submenuOptions)
                     ->submenuOptions($submenuOptions)
@@ -154,6 +160,9 @@ class Dropdown extends Widget
      *   merged with {@see submenuOptions}.
      *
      * To insert divider use `-`.
+     * @param array $value
+     *
+     * @return $this
      */
     public function items(array $value): self
     {
@@ -164,6 +173,10 @@ class Dropdown extends Widget
 
     /**
      * Whether the labels for header items should be HTML-encoded.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function encodeLabels(bool $value): self
     {
@@ -174,6 +187,10 @@ class Dropdown extends Widget
 
     /**
      * The HTML attributes for sub-menu container tags.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function submenuOptions(array $value): self
     {
@@ -183,7 +200,10 @@ class Dropdown extends Widget
     }
 
     /**
-     * @var array the HTML attributes for the widget container tag. The following special options are recognized.
+     * @param array $value the HTML attributes for the widget container tag. The following special options are
+     * recognized.
+     *
+     * @return $this
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
      */

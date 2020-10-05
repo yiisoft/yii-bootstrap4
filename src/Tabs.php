@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
+use JsonException;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Exception\InvalidConfigException;
+
+use function array_key_exists;
+use function array_merge;
+use function implode;
 
 /**
  * Tabs renders a Tab bootstrap javascript component.
@@ -92,7 +97,7 @@ class Tabs extends Widget
      * @param array $items
      * @param string $prefix
      *
-     * @throws InvalidConfigException
+     * @throws InvalidConfigException|JsonException
      */
     protected function prepareItems(array &$items, string $prefix = ''): void
     {
@@ -101,10 +106,10 @@ class Tabs extends Widget
         }
 
         foreach ($items as $n => $item) {
-            $options = \array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
+            $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
             $options['id'] = ArrayHelper::getValue($options, 'id', $this->options['id'] . $prefix . '-tab' . $n);
 
-            /* {@see https://github.com/yiisoft/yii2-bootstrap4/issues/108#issuecomment-465219339} */
+            /** {@see https://github.com/yiisoft/yii2-bootstrap4/issues/108#issuecomment-465219339} */
             unset($items[$n]['options']['id']);
 
             if (!ArrayHelper::remove($item, 'visible', true)) {
@@ -190,6 +195,8 @@ class Tabs extends Widget
      *
      * @param array $panes
      *
+     * @throws JsonException
+     *
      * @return string the rendering result.
      */
     public function renderPanes(array $panes): string
@@ -199,6 +206,10 @@ class Tabs extends Widget
 
     /**
      * Name of a class to use for rendering dropdowns withing this widget. Defaults to {@see Dropdown}.
+     *
+     * @param string $value
+     *
+     * @return $this
      */
     public function dropdownClass(string $value): self
     {
@@ -209,6 +220,10 @@ class Tabs extends Widget
 
     /**
      * Whether the labels for header items should be HTML-encoded.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function encodeLabels(bool $value): self
     {
@@ -222,6 +237,10 @@ class Tabs extends Widget
      * individual {@see items}.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function headerOptions(array $value): self
     {
@@ -250,6 +269,9 @@ class Tabs extends Widget
      *     * active: bool, optional, whether the item tab header and pane should be visible or not.
      *     * content: string, required if `items` is not set. The content (HTML) of the tab pane.
      *     * contentOptions: optional, array, the HTML attributes of the tab content container.
+     * @param array $value
+     *
+     * @return $this
      */
     public function items(array $value): self
     {
@@ -261,6 +283,10 @@ class Tabs extends Widget
     /**
      * List of HTML attributes for the item container tags. This will be overwritten by the "options" set in individual
      * {@see items}. The following special options are recognized.
+     *
+     * @param array $value
+     *
+     * @return $this
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
      */
@@ -275,6 +301,10 @@ class Tabs extends Widget
      * List of HTML attributes for the tab header link tags. This will be overwritten by the "linkOptions" set in
      * individual {@see items}.
      *
+     * @param array $value
+     *
+     * @return $this
+     *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
      */
     public function linkOptions(array $value): self
@@ -286,6 +316,10 @@ class Tabs extends Widget
 
     /**
      * Specifies the Bootstrap tab styling.
+     *
+     * @param string $value
+     *
+     * @return $this
      */
     public function navType(string $value): self
     {
@@ -298,6 +332,10 @@ class Tabs extends Widget
      * The HTML attributes for the widget container tag. The following special options are recognized.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function options(array $value): self
     {
@@ -308,6 +346,10 @@ class Tabs extends Widget
 
     /**
      * Tab panes (contents).
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function panes(array $value): self
     {
@@ -319,6 +361,10 @@ class Tabs extends Widget
     /**
      * Whether to render the `tab-content` container and its content. You may set this property to be false so that you
      * can manually render `tab-content` yourself in case your tab contents are complex.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function renderTabContent(bool $value): self
     {
@@ -331,6 +377,10 @@ class Tabs extends Widget
      * List of HTML attributes for the `tab-content` container. This will always contain the CSS class `tab-content`.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function tabContentOptions(array $value): self
     {

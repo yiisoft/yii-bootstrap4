@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
+use JsonException;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Exception\InvalidConfigException;
+
+use function is_array;
+use function is_string;
 
 /**
  * Nav renders a nav HTML component.
@@ -126,6 +130,8 @@ class Nav extends Widget
     /**
      * Renders widget items.
      *
+     * @throws InvalidConfigException|JsonException
+     *
      * @return string
      */
     public function renderItems(): string
@@ -148,13 +154,13 @@ class Nav extends Widget
      *
      * @param string|array $item the item to render.
      *
-     * @return string the rendering result.
+     * @throws InvalidConfigException|JsonException
      *
-     * @throws InvalidConfigException
+     * @return string the rendering result.
      */
     public function renderItem($item): string
     {
-        if (\is_string($item)) {
+        if (is_string($item)) {
             return $item;
         }
 
@@ -179,7 +185,7 @@ class Nav extends Widget
             Html::addCssClass($options, ['widget' => 'dropdown']);
             Html::addCssClass($linkOptions, ['widget' => 'dropdown-toggle']);
 
-            if (\is_array($items)) {
+            if (is_array($items)) {
                 $items = $this->isChildActive($items, $active);
                 $items = $this->renderDropdown($items, $item);
             }
@@ -235,7 +241,7 @@ class Nav extends Widget
     protected function isChildActive(array $items, bool &$active): array
     {
         foreach ($items as $i => $child) {
-            if (\is_array($child) && !ArrayHelper::getValue($child, 'visible', true)) {
+            if (is_array($child) && !ArrayHelper::getValue($child, 'visible', true)) {
                 continue;
             }
 
@@ -246,7 +252,7 @@ class Nav extends Widget
                 }
             }
 
-            if (is_array($child) && ($childItems = ArrayHelper::getValue($child, 'items')) && \is_array($childItems)) {
+            if (is_array($child) && ($childItems = ArrayHelper::getValue($child, 'items')) && is_array($childItems)) {
                 $activeParent = false;
                 $items[$i]['items'] = $this->isChildActive($childItems, $activeParent);
 
@@ -302,6 +308,10 @@ class Nav extends Widget
      *   only this item.
      *
      * If a menu item is a string, it will be rendered directly without HTML encoding.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function items(array $value): self
     {
@@ -312,6 +322,10 @@ class Nav extends Widget
 
     /**
      * Whether the nav items labels should be HTML-encoded.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function encodeLabels(bool $value): self
     {
@@ -320,9 +334,6 @@ class Nav extends Widget
         return $this;
     }
 
-    /**
-     * {@see $label}
-     */
     public function label(string $value): self
     {
         $this->label = $value;
@@ -332,6 +343,10 @@ class Nav extends Widget
 
     /**
      * Whether to automatically activate items according to whether their currentPath matches the currently requested.
+     *
+     * @param bool $value
+     *
+     * @return $this
      *
      * {@see isItemActive}
      */
@@ -344,6 +359,10 @@ class Nav extends Widget
 
     /**
      * Whether to activate parent menu items when one of the corresponding child menu items is active.
+     *
+     * @param bool $value
+     *
+     * @return $this
      */
     public function activateParents(bool $value): self
     {
@@ -354,6 +373,10 @@ class Nav extends Widget
 
     /**
      * Allows you to assign the current path of the url from request controller.
+     *
+     * @param string|null $value
+     *
+     * @return $this
      */
     public function currentPath(?string $value): self
     {
@@ -364,6 +387,10 @@ class Nav extends Widget
 
     /**
      * The parameters used to determine if a menu item is active or not. If not set, it will use `$_GET`.
+     *
+     * @param array $value
+     *
+     * @return $this
      *
      * {@see currentPath}
      * {@see isItemActive}
@@ -377,6 +404,10 @@ class Nav extends Widget
 
     /**
      * Name of a class to use for rendering dropdowns within this widget. Defaults to {@see Dropdown}.
+     *
+     * @param string $value
+     *
+     * @return $this
      */
     public function dropdownClass(string $value): self
     {
@@ -389,6 +420,10 @@ class Nav extends Widget
      * The HTML attributes for the widget container tag. The following special options are recognized.
      *
      * {@see \Yiisoft\Html\Html::renderTagAttributes()} for details on how attributes are being rendered.
+     *
+     * @param array $value
+     *
+     * @return $this
      */
     public function options(array $value): self
     {
