@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yiisoft\Yii\Bootstrap4;
 
 use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
 use Yiisoft\Widget\Exception\InvalidConfigException;
 
 /**
@@ -37,11 +38,8 @@ class Carousel extends Widget
     ];
 
     private bool $showIndicators = true;
-
     private array $items = [];
-
     private bool $crossfade = false;
-
     private array $options = ['data-ride' => 'carousel'];
 
     protected function run(): string

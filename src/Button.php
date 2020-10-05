@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
+use Yiisoft\Html\Html;
+
 /**
  * Button renders a bootstrap button.
  *
@@ -18,11 +20,8 @@ namespace Yiisoft\Yii\Bootstrap4;
 class Button extends Widget
 {
     private string $tagName = 'button';
-
     private string $label = 'Button';
-
     private bool $encodeLabels = true;
-
     private array $options = [];
 
     protected function run(): string

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yiisoft\Yii\Bootstrap4;
 
 use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
 
 /**
  * ButtonGroup renders a button group bootstrap component.
@@ -83,7 +84,7 @@ class ButtonGroup extends Widget
                                  ->encodeLabels($button['encodeLabel'])
                                  ->label($button['label'])
                                  ->options($button['options'])
-                                 ->run();
+                                 ->render();
             } else {
                 $buttons[] = $button;
             }

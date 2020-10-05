@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yiisoft\Yii\Bootstrap4;
 
 use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
 use Yiisoft\Widget\Exception\InvalidConfigException;
 
 /**
@@ -47,13 +48,9 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
 class Progress extends Widget
 {
     private ?string $label = null;
-
     private ?string $percent = null;
-
     private array $bars = [];
-
     private array $options = [];
-
     private array $barOptions = [];
 
     protected function run(): string
