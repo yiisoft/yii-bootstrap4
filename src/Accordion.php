@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
-use JsonException;
-use Yiisoft\Arrays\ArrayHelper;
-use Yiisoft\Html\Html;
-use Yiisoft\Widget\Exception\InvalidConfigException;
-
 use function array_key_exists;
 use function array_merge;
 use function is_array;
 use function is_int;
+
 use function is_numeric;
 use function is_object;
 use function is_string;
+use JsonException;
+use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
+use Yiisoft\Widget\Exception\InvalidConfigException;
 
 /**
  * Accordion renders an accordion bootstrap javascript component.
@@ -72,10 +72,10 @@ class Accordion extends Widget
         Html::addCssClass($this->options, 'accordion');
 
         return implode("\n", [
-                Html::beginTag('div', $this->options),
-                $this->renderItems(),
-                Html::endTag('div')
-            ]) . "\n";
+            Html::beginTag('div', $this->options),
+            $this->renderItems(),
+            Html::endTag('div'),
+        ]) . "\n";
     }
 
     /**
@@ -154,7 +154,7 @@ class Accordion extends Widget
                 'data-toggle' => 'collapse',
                 'data-target' => '#' . $options['id'],
                 'aria-expanded' => ($index === 0) ? 'true' : 'false',
-                'aria-controls' => $options['id']
+                'aria-controls' => $options['id'],
             ], $this->itemToggleOptions);
             $itemToggleTag = ArrayHelper::remove($itemToggleOptions, 'tag', 'button');
 
@@ -177,11 +177,11 @@ class Accordion extends Widget
                 $content = Html::tag('div', $item['content'], ['class' => 'card-body']) . "\n";
             } elseif (is_array($item['content'])) {
                 $content = Html::ul($item['content'], [
-                        'class' => 'list-group',
-                        'itemOptions' => [
-                            'class' => 'list-group-item'
-                        ],
-                        'encode' => false,
+                    'class' => 'list-group',
+                    'itemOptions' => [
+                        'class' => 'list-group-item',
+                    ],
+                    'encode' => false,
                     ]) . "\n";
             } else {
                 throw new InvalidConfigException('The "content" option should be a string, array or object.');
@@ -269,6 +269,7 @@ class Accordion extends Widget
      *   ]
      * ])
      * ```
+     *
      * @param array $value
      *
      * @return $this
@@ -291,6 +292,7 @@ class Accordion extends Widget
      *     'class' => 'custom-toggle',
      * ]
      * ```
+     *
      * @param array $value
      *
      * @return $this

@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
-use JsonException;
-use Yiisoft\Arrays\ArrayHelper;
-use Yiisoft\Html\Html;
-use Yiisoft\Widget\Exception\InvalidConfigException;
-
 use function array_key_exists;
 use function array_merge;
 use function implode;
+use JsonException;
+
+use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
+use Yiisoft\Widget\Exception\InvalidConfigException;
 
 /**
  * Tabs renders a Tab bootstrap javascript component.
@@ -269,6 +269,7 @@ class Tabs extends Widget
      *     * active: bool, optional, whether the item tab header and pane should be visible or not.
      *     * content: string, required if `items` is not set. The content (HTML) of the tab pane.
      *     * contentOptions: optional, array, the HTML attributes of the tab content container.
+     *
      * @param array $value
      *
      * @return $this
