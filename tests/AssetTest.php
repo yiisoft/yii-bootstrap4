@@ -22,13 +22,12 @@ final class AssetTest extends TestCase
             [
                 'Js',
                 JqueryAsset::class,
-            ]
+            ],
         ];
     }
 
     /**
      * @dataProvider registerDataProvider
-     *
      *
      * @param string $type
      * @param string $asset

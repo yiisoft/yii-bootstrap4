@@ -27,7 +27,7 @@ class JqueryAsset extends AssetBundle
 
     public array $publishOptions = [
         'only' => [
-            'dist/jquery.js'
+            'dist/jquery.js',
         ],
     ];
 }
