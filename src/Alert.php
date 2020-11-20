@@ -70,7 +70,7 @@ class Alert extends Widget
 
         $tag = ArrayHelper::remove($this->closeButton, 'tag', 'button');
         $label = ArrayHelper::remove($this->closeButton, 'label', Html::tag('span', '&times;', [
-            'aria-hidden' => 'true'
+            'aria-hidden' => 'true',
         ]));
 
         if ($tag === 'button' && !isset($this->closeButton['type'])) {
