@@ -173,6 +173,45 @@ HTML;
         $this->assertStringNotContainsString('data-parent="', $html);
     }
 
+    public function testExpandOptions()
+    {
+        Accordion::counter(0);
+        $items = [
+            [
+                'label' => 'Item 1',
+                'content' => 'Content 1',
+            ],
+            [
+                'label' => 'Item 2',
+                'content' => 'Content 2',
+                'expand' => true,
+            ],
+        ];
+
+        $html = Accordion::widget()
+            ->items($items)
+            ->render();
+
+        $this->assertEqualsWithoutLE(<<<HTML
+<div id="w0-accordion" class="accordion">
+<div class="card"><div id="w0-accordion-collapse0-heading" class="card-header"><h5 class="mb-0"><button type="button" id="w1-button" class="btn-link btn" data-toggle="collapse" data-target="#w0-accordion-collapse0" aria-expanded="false" aria-controls="w0-accordion-collapse0">Item 1</button>
+</h5></div>
+<div id="w0-accordion-collapse0" class="collapse" aria-labelledby="w0-accordion-collapse0-heading" data-parent="#w0-accordion">
+<div class="card-body">Content 1</div>
+
+</div></div>
+<div class="card"><div id="w0-accordion-collapse1-heading" class="card-header"><h5 class="mb-0"><button type="button" id="w2-button" class="btn-link btn" data-toggle="collapse" data-target="#w0-accordion-collapse1" aria-expanded="true" aria-controls="w0-accordion-collapse1">Item 2</button>
+</h5></div>
+<div id="w0-accordion-collapse1" class="collapse show" aria-labelledby="w0-accordion-collapse1-heading" data-parent="#w0-accordion">
+<div class="card-body">Content 2</div>
+
+</div></div>
+</div>
+
+HTML
+        , $html);
+    }
+
     /**
      * @depends testRender
      */

@@ -4,18 +4,20 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
-use function array_key_exists;
-use function array_merge;
-use function is_array;
-use function is_int;
-
-use function is_numeric;
-use function is_object;
-use function is_string;
 use JsonException;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Exception\InvalidConfigException;
+
+use function array_column;
+use function array_key_exists;
+use function array_merge;
+use function array_search;
+use function is_array;
+use function is_int;
+use function is_numeric;
+use function is_object;
+use function is_string;
 
 /**
  * Accordion renders an accordion bootstrap javascript component.
@@ -38,6 +40,7 @@ use Yiisoft\Widget\Exception\InvalidConfigException;
  *             'content' => 'Anim pariatur cliche...',
  *             'contentOptions' => [...],
  *             'options' => [...],
+ *             'expand' => true,
  *         ],
  *         // if you want to swap out .card-block with .list-group, you may use the following
  *         [
@@ -89,10 +92,15 @@ class Accordion extends Widget
     {
         $items = [];
         $index = 0;
+        $expanded = array_search(true, array_column($this->items, 'expand'));
 
         foreach ($this->items as $key => $item) {
             if (!is_array($item)) {
                 $item = ['content' => $item];
+            }
+
+            if ($expanded === false && $index === 0) {
+                $item['expand'] = true;
             }
 
             if (!array_key_exists('label', $item)) {
@@ -129,12 +137,13 @@ class Accordion extends Widget
     {
         if (array_key_exists('content', $item)) {
             $id = $this->options['id'] . '-collapse' . $index;
+            $expand = ArrayHelper::remove($item, 'expand', false);
             $options = ArrayHelper::getValue($item, 'contentOptions', []);
             $options['id'] = $id;
 
             Html::addCssClass($options, ['widget' => 'collapse']);
 
-            if ($index === 0) {
+            if ($expand) {
                 Html::addCssClass($options, 'show');
             }
 
@@ -153,7 +162,7 @@ class Accordion extends Widget
                 'type' => 'button',
                 'data-toggle' => 'collapse',
                 'data-target' => '#' . $options['id'],
-                'aria-expanded' => ($index === 0) ? 'true' : 'false',
+                'aria-expanded' => $expand ? 'true' : 'false',
                 'aria-controls' => $options['id'],
             ], $this->itemToggleOptions);
             $itemToggleTag = ArrayHelper::remove($itemToggleOptions, 'tag', 'button');
@@ -182,7 +191,7 @@ class Accordion extends Widget
                         'class' => 'list-group-item',
                     ],
                     'encode' => false,
-                    ]) . "\n";
+                ]) . "\n";
             } else {
                 throw new InvalidConfigException('The "content" option should be a string, array or object.');
             }
