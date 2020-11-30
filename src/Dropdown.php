@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Yiisoft\Yii\Bootstrap4;
 
 use JsonException;
+use RuntimeException;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
-use Yiisoft\Widget\Exception\InvalidConfigException;
 
 use function array_key_exists;
 use function array_merge;
@@ -57,7 +57,7 @@ class Dropdown extends Widget
      * @param array $items the menu items to be rendered
      * @param array $options the container HTML attributes
      *
-     * @throws InvalidConfigException|JsonException if the label option is not specified in  one of the items.
+     * @throws RuntimeException|JsonException if the label option is not specified in  one of the items.
      *
      * @return string the rendering result.
      */
@@ -78,7 +78,7 @@ class Dropdown extends Widget
             }
 
             if (!array_key_exists('label', $item)) {
-                throw new InvalidConfigException("The 'label' option is required.");
+                throw new RuntimeException('The "label" option is required.');
             }
 
             $encodeLabel = $item['encode'] ?? $this->encodeLabels;

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Yiisoft\Yii\Bootstrap4;
 
 use JsonException;
+use RuntimeException;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
-use Yiisoft\Widget\Exception\InvalidConfigException;
 
 use function array_key_exists;
 use function array_merge;
@@ -97,7 +97,7 @@ class Tabs extends Widget
      * @param array $items
      * @param string $prefix
      *
-     * @throws InvalidConfigException|JsonException
+     * @throws RuntimeException|JsonException
      */
     protected function prepareItems(array &$items, string $prefix = ''): void
     {
@@ -117,7 +117,7 @@ class Tabs extends Widget
             }
 
             if (!array_key_exists('label', $item)) {
-                throw new InvalidConfigException("The 'label' option is required.");
+                throw new RuntimeException('The "label" option is required.');
             }
 
             $selected = ArrayHelper::getValue($item, 'active', false);

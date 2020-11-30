@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4\Tests;
 
-use Yiisoft\Widget\Exception\InvalidConfigException;
+use RuntimeException;
 use Yiisoft\Yii\Bootstrap4\Accordion;
 
 /**
@@ -137,7 +137,7 @@ HTML;
      */
     public function testMissingLabel(array $items): void
     {
-        $this->expectException(InvalidConfigException::class);
+        $this->expectException(RuntimeException::class);
 
         Accordion::widget()
             ->items($items)
