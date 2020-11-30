@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Yiisoft\Yii\Bootstrap4;
 
-use function array_merge;
 use JsonException;
 use Yiisoft\Arrays\ArrayHelper;
-
 use Yiisoft\Html\Html;
+
+use function array_merge;
 
 /**
  * Modal renders a modal window that can be toggled by clicking on a button.
@@ -17,7 +17,7 @@ use Yiisoft\Html\Html;
  * modal window:
  *
  * ```php
- * Modal::begin()
+ * Modal::widget()
  *     ->title('<h2>Hello world</h2>')
  *     ->toggleButton(['label' => 'click me'])
  *     ->begin();

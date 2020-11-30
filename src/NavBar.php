@@ -47,13 +47,13 @@ use Yiisoft\Html\Html;
  *        ];
  *    }
  *
- *    <?php NavBar::begin()
+ *    <?php NavBar::widget()
  *        ->brandLabel('My Application Basic')
  *        ->brandUrl('/')
  *        ->options([
  *            'class' => 'navbar navbar-dark bg-dark navbar-expand-lg text-white',
  *        ])
- *        ->start();
+ *        ->begin();
  *
  *        echo Nav::widget()
  *            ->currentPath($currentPath)
