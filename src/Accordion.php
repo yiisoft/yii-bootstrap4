@@ -129,7 +129,7 @@ class Accordion extends Widget
      * @param array $item a single item from {@see items}
      * @param int $index the item index as each item group content must have an id.
      *
-     * @throws RuntimeException|JsonException
+     * @throws JsonException|RuntimeException
      *
      * @return string the rendering result
      */
