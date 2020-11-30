@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use function readdir;
 use RuntimeException;
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Assets\AssetConverter;
@@ -19,8 +18,9 @@ use Yiisoft\Assets\AssetPublisherInterface;
 use Yiisoft\Di\Container;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Files\FileHelper;
-
 use Yiisoft\Widget\WidgetFactory;
+
+use function readdir;
 
 abstract class TestCase extends BaseTestCase
 {
