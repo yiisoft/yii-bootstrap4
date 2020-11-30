@@ -20,7 +20,7 @@ use Yiisoft\Html\Html;
  * Modal::begin()
  *     ->title('<h2>Hello world</h2>')
  *     ->toggleButton(['label' => 'click me'])
- *     ->start();
+ *     ->begin();
  *
  * echo 'Say hello...';
  *
@@ -57,8 +57,10 @@ class Modal extends Widget
     private bool $toggleButtonEnabled = true;
     private array $options = [];
 
-    public function start(): string
+    public function begin(): ?string
     {
+        parent::begin();
+
         if (!isset($this->options['id'])) {
             $this->options['id'] = "{$this->getId()}-modal";
         }

@@ -121,8 +121,10 @@ class NavBar extends Widget
     private array $innerContainerOptions = [];
     private array $options = [];
 
-    public function start(): string
+    public function begin(): ?string
     {
+        parent::begin();
+
         if (!isset($this->options['id'])) {
             $id = $this->getId();
             $this->options['id'] = "{$id}-navbar";
