@@ -33,7 +33,7 @@ use function trim;
  *
  * // striped
  * echo Progress::widget()
- *     ->'bars'([
+ *     ->bars([
  *         ['percent' => '70', 'options' => ['class' => 'bg-warning progress-bar-striped']]
  *     ]);
  *
@@ -44,7 +44,7 @@ use function trim;
  *
  * // stacked bars
  * echo Progress::widget()
- *     'bars' => ([
+ *     ->bars([
  *         ['percent' => '30', 'options' => ['class' => 'bg-danger']],
  *         ['percent' => '30', 'label' => 'test', 'options' => ['class' => 'bg-success']],
  *         ['percent' => '35', 'options' => ['class' => 'bg-warning']],

@@ -16,8 +16,6 @@ in Yii applications extremely easy.
 [Yii Framework]:        http://www.yiiframework.com/
 [Twitter Bootstrap 4]:  https://getbootstrap.com/docs/4.1/getting-started/introduction/
 
-For license information check the [LICENSE](LICENSE.md)-file.
-
 Documentation is at [docs/guide/README.md](docs/guide/README.md).
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii-bootstrap4/v/stable.png)](https://packagist.org/packages/yiisoft/yii-bootstrap4)
@@ -34,7 +32,7 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 ```
-php composer.phar require --prefer-dist yiisoft/yii-bootstrap4
+composer require yiisoft/yii-bootstrap4
 ```
 
 ### Usage
@@ -43,8 +41,9 @@ For example, the following
 single line of code in a view file would render a Bootstrap Progress plugin:
 
 ```php
-<?= Yiisoft\Yii\Bootstrap4\Progress::widget(['percent' => 60, 'label' => 'test']) ?>
+<?= Progress::widget()->percent('60')->label(test); ?>
 ```
+Read [Documentation](docs/guide/README.md) for more information
 
 ### Unit testing
 
