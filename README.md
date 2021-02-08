@@ -9,6 +9,8 @@
     <br>
 </p>
 
+> ⚠️ Please do not start new projects with Bootstrap 4. There is [Bootstrap 5 package available](https://github.com/yiisoft/yii-bootstrap5).
+
 This [Yii Framework] extension encapsulates [Twitter Bootstrap 4] components
 and plugins in terms of Yii widgets, and thus makes using Bootstrap components/plugins
 in Yii applications extremely easy.
